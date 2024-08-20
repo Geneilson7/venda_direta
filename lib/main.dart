@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:venda_direta/pages/page_init.dart';
+// import 'package:venda_direta/pages/page_init.dart';
+import 'package:venda_direta/utils/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,9 +17,10 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFFFFFFFF),
         useMaterial3: true,
       ),
+      initialRoute: Routes.pageInicital, 
+      onGenerateRoute: Routes.generateRoute,
       debugShowCheckedModeBanner: false,
       locale: const Locale('pt', 'BR'),
-      home: const PrimaryPage(),
     );
   }
 }

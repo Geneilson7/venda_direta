@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:venda_direta/utils/colors.dart';
+import 'package:venda_direta/utils/routes.dart';
+import 'package:venda_direta/widget/button.dart';
 
 class PrimaryPage extends StatefulWidget {
   const PrimaryPage({super.key});
@@ -11,193 +14,93 @@ class PrimaryPage extends StatefulWidget {
 class _PrimaryPageState extends State<PrimaryPage> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: SizedBox(
-          height: size.height,
-          width: size.width,
-          child: Stack(
-            children: [
-              Column(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+        child: Column(
+          children: [
+            Expanded(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        //Image
-                        Image.asset(
-                          'assets/image/screen.png',
-                          width: 480,
-                          height: 480,
-                        ),
-
-                        Text.rich(
-                          TextSpan(
-                            style: GoogleFonts.poppins(
-                              fontSize: 30,
-                            ),
-                            children: [
-                              TextSpan(
-                                text: 'Sua Empresa no\n próximo nível',
-                                style: GoogleFonts.poppins(
-                                  color: const Color(0xFF1F41BB),
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                            ],
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-
-                        const Padding(padding: EdgeInsets.only(bottom: 15)),
-
-                        Text.rich(
-                          TextSpan(
-                            style: GoogleFonts.poppins(
-                              fontSize: 14,
-                            ),
-                            children: [
-                              TextSpan(
-                                text:
-                                    'Potencialize seu negorcio com inovação e \neficiência! Transforme ideias em realidade \ncom nossas soluções de software',
-                                style: GoogleFonts.poppins(
-                                  color: const Color(0xFF000000),
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ),
-                            ],
-                          ),
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Image.asset(
+                      'assets/image/screen.png',
+                      width: 350,
+                      height: 350,
                     ),
                   ),
-
-                  // Formulario
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 32,
-                      vertical: 15,
+                  Text(
+                    'Sua empresa no próximo nível',
+                    style: GoogleFonts.poppins(
+                      color: const Color(0xFFFF6B00),
+                      fontSize: 24,
+                      fontWeight: FontWeight.w600,
                     ),
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.vertical(
-                        top: Radius.circular(45),
-                      ),
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(height: 15),
+                  Text(
+                    'Potencialize seu negócio com inovação e eficiência! Transforme ideias em realidade com nossas soluções de software.',
+                    style: GoogleFonts.poppins(
+                      color: Colors.black,
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
                     ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                    textAlign: TextAlign.center,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 100),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Row(
-                          children: [
-                            Expanded(
-                              child: Container(
-                                height: 50,
-                                margin: const EdgeInsets.only(right: 10),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(11),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: const Color(0xFF1F41BB)
-                                          .withOpacity(0.2),
-                                      spreadRadius: 0,
-                                      blurRadius: 4,
-                                      offset: const Offset(0, 4),
-                                    ),
-                                  ],
-                                ),
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color(0xFF1F41BB),
-                                    foregroundColor: Colors.white,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(11),
-                                    ),
-                                  ),
-                                  onPressed: () {
-                                    // Navigator.of(context).push(
-                                    //   MaterialPageRoute(builder: (d) {
-                                    //     return const SignInScreen();
-                                    //   }),
-                                    // );
-                                  },
-                                  child: Center(
-                                    child: Text(
-                                      'Login',
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 19,
-                                        fontWeight: FontWeight.w700,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Container(
-                                height: 50,
-                                margin: const EdgeInsets.only(left: 10),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(11),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: const Color.fromRGBO(0, 0, 0, 0.25)
-                                          .withOpacity(0.2),
-                                      spreadRadius: 0,
-                                      blurRadius: 4,
-                                      offset: const Offset(0, 4),
-                                    ),
-                                  ],
-                                ),
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.white,
-                                    foregroundColor: const Color(0xFF0A0A0A),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(11),
-                                    ),
-                                  ),
-                                  onPressed: () {
-                                    // Navigator.of(context).push(
-                                    //   MaterialPageRoute(builder: (d) {
-                                    //     return const SignUpScreen();
-                                    //   }),
-                                    // );
-                                  },
-                                  child: Center(
-                                    child: Text(
-                                      'Registrar',
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 19,
-                                        fontWeight: FontWeight.w700,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
+                        CustomButton(
+                          backgroundColor: AppColors.primaryColor,
+                          fontWeight: FontWeight.w600,
+                          label: "Login",
+                          onPressed: () {
+                            Navigator.pushNamed(context, Routes.loginPage);
+                          },
                         ),
-
-                        // Logo image
-                        Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Image.asset(
-                            'assets/image/logo.png',
-                            height: 120,
-                            width: 120,
-                          ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        CustomButton(
+                          textColor: AppColors.accentColor,
+                          backgroundColor: AppColors.white,
+                          fontWeight: FontWeight.w600,
+                          label: "Registrar",
+                          onPressed: () {},
                         ),
                       ],
                     ),
                   ),
                 ],
               ),
-            ],
-          ),
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Image.asset(
+                    'assets/image/logo.png',
+                    height: 80,
+                    width: 80,
+                  ),
+                  Text(
+                    'Versão 1.0.2',
+                    style: GoogleFonts.poppins(
+                      color: Colors.grey,
+                      fontSize: 12,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
